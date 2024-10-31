@@ -40,7 +40,7 @@ Sub Stock_Analysis():
         'find the last ticker so that we can break out of the loop
         lastTicker = ws.Cells(rowcount, 1).Value
         
-        'loop until we get to the end of the sheet
+        'loop until it get to the end of the sheet
         For row = 2 To rowcount
         
             'check to see if the ticker changed
@@ -53,10 +53,10 @@ Sub Stock_Analysis():
                 'check to see if the value of the total stock volume is 0
                 If total = 0 Then
                     'print the results in the summary table section (Column I -L)
-                    ws.Range("I" & 2 + summaryTableRow).Value = ws.Cells(row, 1).Value       'prints the ticker value from column A
-                    ws.Range("J" & 2 + summaryTableRow).Value = 0                                  'prints a 0 in column J (Quarterlychange)
-                    ws.Range("K" & 2 + summaryTableRow).Value = 0 & "%"                         'prints a 0 in Column K (% change)
-                    ws.Range("L" & 2 + summaryTableRow).Value = 0                                  'prints a 0 in column L (total stock volume)
+                    ws.Range("I" & 2 + summaryTableRow).Value = ws.Cells(row, 1).Value       
+                    ws.Range("J" & 2 + summaryTableRow).Value = 0                                  
+                    ws.Range("K" & 2 + summaryTableRow).Value = 0 & "%"                         
+                    ws.Range("L" & 2 + summaryTableRow).Value = 0                                  
                     
                 Else
                     'Find the first non-zero first open value for the stock
@@ -66,7 +66,7 @@ Sub Stock_Analysis():
                         
                             'check to see if the next (or rows afterwards) open value does not equa 0
                             If ws.Cells(findValue, 3).Value <> 0 Then
-                                'once we have a non-zero first open value, that value becomes the row where we track our first open
+                                
                                 startValue = findValue
                                 'break out of the loop
                                 Exit For
@@ -110,8 +110,8 @@ Sub Stock_Analysis():
                 End If
                 
             Else
-                'if we are in the same ticker, keep adding to the total stock volum
-                total = total + ws.Cells(row, 7).Value     'gets the value from the 7th column (G)
+                'if its in the same ticker, keep adding to the total stock volum
+                total = total + ws.Cells(row, 7).Value     
                 
             End If
 
